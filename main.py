@@ -7,10 +7,6 @@ Created on Sun Aug 16 14:46:03 2020
 from ventana import *
 import serial
 import pyttsx3 
-import speech_recognition as sr
-import detector_de_voz  as dv
-import activar_salidas_arduino as activar
-r = sr.Recognizer() 
 engine=pyttsx3.init()
 engine.setProperty("rate", 180)
 voices=engine.getProperty("voices")
@@ -28,35 +24,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.led2.clicked.connect(self.prender_led2)
         self.led3.clicked.connect(self.prender_led3)
         self.led4.clicked.connect(self.prender_led4)
-        self.escuchar.clicked.connect(self.escuchar_1)
         self.pushButton.clicked.connect(self.salir)
         
-                
-    def escuchar_1(self):
-        texto = dv.detector_de_voz()
-        print (texto)
-        if texto=="prender led 1":
-            engine.say("prender led 1")
-            engine.runAndWait()
-            activar.prender_led1()
-            
-        if texto=="prender led 2":
-            engine.say("prender led 2")
-            engine.runAndWait()
-            activar.prender_led2()
-            
-        if texto=="prender led 3":
-            engine.say("prender led 3")
-            engine.runAndWait()
-            activar.prender_led3()
-            
-        if texto=="prender led 4":
-            engine.say("prender led 4")
-            engine.runAndWait()
-            activar.prender_led4()
-        
-            
-            
     def prender_led1(self):  
         ser=serial.Serial('COM3',9600)
         ser.write(b'1\r\n')
