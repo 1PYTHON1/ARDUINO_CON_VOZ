@@ -229,6 +229,9 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setText("")
         self.label_4.setObjectName("label_4")
+        self.escuchar = QtWidgets.QPushButton(self.centralwidget)
+        self.escuchar.setGeometry(QtCore.QRect(590, 350, 151, 91))
+        self.escuchar.setObjectName("escuchar")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 802, 21))
@@ -250,6 +253,7 @@ class Ui_MainWindow(object):
         self.led3.setText(_translate("MainWindow", "led3"))
         self.led4.setText(_translate("MainWindow", "led4"))
         self.pushButton.setText(_translate("MainWindow", "SALIR"))
+        self.escuchar.setText(_translate("MainWindow", "ESCUCHAR"))
 
 
 if __name__ == "__main__":
