@@ -629,19 +629,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="escuchar">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>350</y>
-      <width>151</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ESCUCHAR</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
