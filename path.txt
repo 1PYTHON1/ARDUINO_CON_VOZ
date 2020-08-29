@@ -1,0 +1,4 @@
+path = os.getcwd()
+path_ima=path+"\\imagenes\\"
+
+pyuic5 -x ventana.ui -o ventana_ui.py

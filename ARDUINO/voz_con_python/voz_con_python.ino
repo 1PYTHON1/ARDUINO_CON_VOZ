@@ -1,6 +1,6 @@
 void setup() 
 {
-  Serial.begin(9600);
+  Serial.begin(9600,SERIAL_8N1);
   pinMode(13,OUTPUT);
   pinMode(12,OUTPUT);
   pinMode(11,OUTPUT);
@@ -9,7 +9,11 @@ void setup()
 
 void loop() 
 {
-  char led;
+int temp= analogRead(0);
+float mv = (temp/1024.0)*5000;                    
+temp = mv/10;
+
+  char  led;
   if(Serial.available()==1)
   {
      led = Serial.read();
@@ -49,6 +53,38 @@ void loop()
       if(!digitalRead(10))
       Serial.println("off");
       }
+
+      if(led=='5')
+  {
+  Serial.println(temp);
+  }
+
+     if (led=='e')
+     {
+      bool estado1=digitalRead(13);
+      bool estado2=digitalRead(12);
+      bool estado3=digitalRead(11);
+      bool estado4=digitalRead(10);
+      if(estado1)
+      Serial.println("on1");
+      else 
+      Serial.println("off1");
+      
+      if(estado2)
+      Serial.println("on2");
+      else 
+      Serial.println("off2");
+      
+      if(estado3)
+      Serial.println("on3");
+      else 
+      Serial.println("off3");
+
+      if(estado4)
+      Serial.println("on4");
+      else 
+      Serial.println("off4");
+     }
 
   }
 }
